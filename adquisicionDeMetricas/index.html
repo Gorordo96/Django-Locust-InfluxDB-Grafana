@@ -1,0 +1,793 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.6">
+    
+    
+      
+        <title>Adquisición de métricas - Documentación</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6910b76c.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.196e0c26.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ubuntu:300,400,400i,700%7C&display=fallback">
+        <style>body,input{font-family:"ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#adquisicion-de-metricas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Documentación" class="md-header-nav__button md-logo" aria-label="Documentación">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Documentación
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Adquisición de métricas
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Documentación" class="md-nav__button md-logo" aria-label="Documentación">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Documentación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../informacion/" class="md-nav__link">
+      Información
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../servicios/" class="md-nav__link">
+      Servicios
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../generacionDeTrafico/" class="md-nav__link">
+      Generación de tráfico
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Adquisición de métricas
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Adquisición de métricas
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-cadvisor" class="md-nav__link">
+    ¿Que es CAdvisor?
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Que es CAdvisor?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limitaciones" class="md-nav__link">
+    Limitaciones
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-se-observa-el-panel-de-administracion-para-monitorear-las-pruebas-de-rendimiento" class="md-nav__link">
+    ¿Como se observa el panel de administracion para monitorear las pruebas de rendimiento?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-django-debug" class="md-nav__link">
+    ¿Que es Django Debug?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-telegraf" class="md-nav__link">
+    ¿Qué es Telegraf?
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Qué es Telegraf?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-utilizar-telegraf" class="md-nav__link">
+    ¿Por qué utilizar Telegraf?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telegraf-en-nuestro-proyecto" class="md-nav__link">
+    Telegraf en nuestro proyecto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../visualizacionDeMetricas/" class="md-nav__link">
+      Visualización de métricas
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PruebasPerformance/" class="md-nav__link">
+      Pruebas de Performance
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-cadvisor" class="md-nav__link">
+    ¿Que es CAdvisor?
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Que es CAdvisor?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limitaciones" class="md-nav__link">
+    Limitaciones
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-se-observa-el-panel-de-administracion-para-monitorear-las-pruebas-de-rendimiento" class="md-nav__link">
+    ¿Como se observa el panel de administracion para monitorear las pruebas de rendimiento?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-django-debug" class="md-nav__link">
+    ¿Que es Django Debug?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-telegraf" class="md-nav__link">
+    ¿Qué es Telegraf?
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Qué es Telegraf?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-utilizar-telegraf" class="md-nav__link">
+    ¿Por qué utilizar Telegraf?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telegraf-en-nuestro-proyecto" class="md-nav__link">
+    Telegraf en nuestro proyecto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="adquisicion-de-metricas">Adquisición de Métricas</h1>
+<h2 id="que-es-cadvisor">¿Que es CAdvisor?</h2>
+<div style="text-align:justify">cAdvisor (abreviatura de <strong>c</strong> ontainer <strong>Advisor</strong> ) analiza y expone el uso de recursos y los datos de rendimiento de los contenedores en ejecución. Dentro de sus principales características podemos destacar: </div>
+
+<div style="text-align:justify">
+<ol>
+<li> cAdvisor es un recopilador de uso de recursos de contenedores de código abierto. </li>
+<li> Soporte nativo para contenedores Docker y solo admite otros tipos de contenedores. </li>
+<li> cAdvisor funciona por nodo. Detecta automáticamente todos los contenedores en el nodo dado y recopila estadísticas de uso de la CPU, la memoria, el sistema de archivos y la red. </li>
+<li> Soporte para ejecutar de forma independiente fuera de Docker o cualquier otro contenedor. </li>
+<li> Proporciona el uso general de la máquina analizando el contenedor 'raíz' en la máquina. </li>
+<li> Admite la exportación de estadísticas a varios complementos de almacenamiento, por ejemplo, Elasticsearch, InfluxDB, etc. </li>
+<li> Las métricas se pueden ver en la interfaz de usuario web,  /containers que exporta información en vivo sobre todos los contenedores en la máquina. </li>
+<li> Expone estadísticas sin procesar y procesadas a través de una API REST remota versionada. </li>
+</ol>
+</div>
+
+<h3 id="limitaciones">Limitaciones</h3>
+<div style="text-align:justify">
+<ol>
+<li> Recopila la utilización de recursos básicos, es decir, no podríamos obtener el rendimiento real de las aplicaciones de contenedor, por ejemplo, x% de utilización de CPU </li>
+<li> No ofrece capacidades de análisis, tendencias o almacenamiento a largo plazo. </li>
+</ol>
+</div>
+
+<h3 id="como-se-observa-el-panel-de-administracion-para-monitorear-las-pruebas-de-rendimiento">¿Como se observa el panel de administracion para monitorear las pruebas de rendimiento?</h3>
+<div style="text-align:justify">Una vez desplegado el contenedor, podemos acceder via web a traves de <em>https://127.0.0.1:8080</em> y se abrirá una interfaz bastante sencilla e intuitiva, la cual nos va a mostrar los recursos del sistema y el listado de contendores que tenemos desplegados.</div>
+
+<h2 id="que-es-django-debug">¿Que es Django Debug?</h2>
+<div style="text-align:justify">Django Debug como su nombre lo indica, es una herramienta que permite vigilar el rendimiento de una aplicacion desarrollada en Django.Nos proporciona entre otras cosas: información de consultas de base de datos, templates usadas y tiempos de carga.</div>
+
+<p><img alt="Imagen_Debug_Django" src="https://gitlab.com/unrc/trafico/tabajos-finales/lucas_gorordo-ger-nimo_passini-2020/desarrollo/-/raw/master/docs/Img/QueTraeElDebug.png" /></p>
+<H5>¿Que preguntas nos ayuda a responder?</H5>
+
+<ul>
+<li type="circle">¿Cuántas consultas SQL se ejecutaron?</li>
+
+<li type="circle">¿Cuál fue el tiempo acumulado en la base de datos?</li>
+
+<li type="circle">¿Qué consultas individuales se ejecutaron y cuánto tiempo tomó cada una?</li>
+
+<li type="circle">¿Qué código genera cada consulta?</li>
+
+<li type="circle"> ¿Qué plantillas se usaron para renderizar la página? </li>
+
+<li type="circle"> ¿Cómo afecta el caché al rendimiento? </li>
+</ul>
+
+<H6>Consultas para un Loguin </H6>
+<p><img alt="Imagen_Query_Login" src="https://gitlab.com/unrc/trafico/tabajos-finales/lucas_gorordo-ger-nimo_passini-2020/desarrollo/-/raw/master/docs/Img/Query_Login.PNG" /></p>
+<H6>Consultas para registrar un dato </H6>
+<p><img alt="Imagen_Query_Cargar_un_dato" src="https://gitlab.com/unrc/trafico/tabajos-finales/lucas_gorordo-ger-nimo_passini-2020/desarrollo/-/raw/master/docs/Img/Query_CargarDato_2.PNG" /></p>
+<H6>Consulta para visualizar datos</H6>
+<p><img alt="Imagen_Query_consulta_para_visualizacion_de_datos" src="https://gitlab.com/unrc/trafico/tabajos-finales/lucas_gorordo-ger-nimo_passini-2020/desarrollo/-/raw/master/docs/Img/Query_ConsultaDatosUnSoloDato.PNG" /></p>
+<H5> ¿ Donde optimizar la aplicacion web ? </H5>
+
+<div style="text-align:justify">En casi todas las aplicaciones web dinámicas el cuello de botella siempre es la base de datos ya que con frecuencia se necesita acceder a la información de los discos y realiza cálculos costosos en la memoria para consultas complejas.<br><br>
+<em>Minimizar el número de consultas como el tiempo que necesitan para ejecutarse es una forma segura de acelerar la aplicación.</em>
+</div>
+
+<div style="text-align:justify"> Para lograr estos objetivos se pueden aplicar muchas modificaciones y optimizaciones sobre las consultas a las bases de datos. Para mas detalles consulte la siguiente url.</div>
+<p><br></p>
+<p><a href="https://medium.com/@eleonardo/django-high-performance-34668a9dd987">Optimizacion de aplicaciones Django</a></p>
+<h2 id="que-es-telegraf">¿Qué es Telegraf?</h2>
+<div style="text-align:justify">Telegraf es un agente de servidor basado en complementos para recopilar y enviar métricas y eventos de bases de datos, sistemas y sensores de IoT.<br>
+Es una herramienta escrita en Go que requiere una huella de memoria minima y se compila en un único binario sin dependencias externas.</div>
+
+<h3 id="por-que-utilizar-telegraf">¿Por qué utilizar Telegraf?</h3>
+<H5>Recopila y envía todo tipo de datos:</H5>
+<ul>
+<li type="circle"><em>Base de datos:</em> conéctese a fuentes de datos como MongoDB, MySQL, Redis y otras para recopilar y enviar métricas.</li>
+<li type="circle"><em>Sistemas:</em> recopile métricas de su pila moderna de plataformas, contenedores y orquestadores en la nube.</li>
+<li type="circle"><em>Sensores de IoT:</em> recopile datos de estado críticos (niveles de presión, niveles de temperatura, etc.) de los sensores y dispositivos de IoT.</li>
+</ul>
+
+<H5>Agente</H5>
+<div style="text-align:justify">Telegraf puede recopilar métricas de una amplia gama de entradas y escribirlas en una amplia gama de salidas. Está impulsado por complementos tanto para la recopilación como para la salida de datos, por lo que se puede ampliar fácilmente. Está escrito en Go, lo que significa que es un binario compilado e independiente que se puede ejecutar en cualquier sistema sin necesidad de dependencias externas, sin necesidad de npm, pip, gem u otras herramientas de administración de paquetes.</div>
+
+<H5>Cobertura</H5>
+<div style="text-align:justify">con más de 200  complementos, es fácil comenzar a recopilar métricas de los diferentes puntos finales. Ademas, la facilidad del desarrollo de complementos significa que se pueden crear diferentes complementos que se adapten a las necesidades particulares de monitoreo. </div>
+
+<H5>Flexible</H5>
+<div style="text-align:justify"> La arquitectura del complemento Telegraf admite procesos propios de la estructura de servicios implementada y no obliga a cambiar los diferentes flujos de trabajo para usar esta tecnología.  Simplemente se adapta a la arquitectura en lugar de al revés. La flexibilidad de Telegraf hace que sea una decisión fácil de implementar.</div>
+
+<h3 id="telegraf-en-nuestro-proyecto">Telegraf en nuestro proyecto</h3>
+<div style="text-align:justify"> A continuacion se presenta el archivo de configuracion Telegraf de forma resumida, con sus principales configuraciones y plugins: </div>
+
+<pre><code># Configuration for telegraf agent
+[agent]
+  ## Default data collection interval for all inputs
+  interval = &quot;10s&quot;
+  ## Rounds collection interval to 'interval'
+  ## ie, if interval=&quot;10s&quot; then always collect on :00, :10, :20, etc.
+  round_interval = true
+
+  ## Telegraf will send metrics to outputs in batches of at most
+  ## metric_batch_size metrics.
+  ## This controls the size of writes that Telegraf sends to output plugins.
+  metric_batch_size = 1000
+
+  ## Maximum number of unwritten metrics per output.  Increasing this value
+  ## allows for longer periods of output downtime without dropping metrics at the
+  ## cost of higher maximum memory usage.
+  metric_buffer_limit = 10000
+
+  ## Collection jitter is used to jitter the collection by a random amount.
+  ## Each plugin will sleep for a random time within jitter before collecting.
+  ## This can be used to avoid many plugins querying things like sysfs at the
+  ## same time, which can have a measurable effect on the system.
+  collection_jitter = &quot;0s&quot;
+
+  ## Default flushing interval for all outputs. Maximum flush_interval will be
+  ## flush_interval + flush_jitter
+  flush_interval = &quot;10s&quot;
+  ## Jitter the flush interval by a random amount. This is primarily to avoid
+  ## large write spikes for users running a large number of telegraf instances.
+  ## ie, a jitter of 5s and interval 10s means flushes will happen every 10-15s
+  flush_jitter = &quot;0s&quot;
+
+  ## By default or when set to &quot;0s&quot;, precision will be set to the same
+  ## timestamp order as the collection interval, with the maximum being 1s.
+  ##   ie, when interval = &quot;10s&quot;, precision will be &quot;1s&quot;
+  ##       when interval = &quot;250ms&quot;, precision will be &quot;1ms&quot;
+  ## Precision will NOT be used for service inputs. It is up to each individual
+  ## service input to set the timestamp at the appropriate precision.
+  ## Valid time units are &quot;ns&quot;, &quot;us&quot; (or &quot;µs&quot;), &quot;ms&quot;, &quot;s&quot;.
+  precision = &quot;&quot;
+
+  ## Log at debug level.
+  # debug = false
+  ## Log only error level messages.
+  # quiet = false
+
+  ## Log target controls the destination for logs and can be one of &quot;file&quot;,
+  ## &quot;stderr&quot; or, on Windows, &quot;eventlog&quot;.  When set to &quot;file&quot;, the output file
+  ## is determined by the &quot;logfile&quot; setting.
+  # logtarget = &quot;file&quot;
+
+  ## Name of the file to be logged to when using the &quot;file&quot; logtarget.  If set to
+  ## the empty string then logs are written to stderr.
+  # logfile = &quot;&quot;
+
+  ## Override default hostname, if empty use os.Hostname()
+  hostname = &quot;&quot;
+  ## If set to true, do no set the &quot;host&quot; tag in the telegraf agent.
+  omit_hostname = false
+
+
+###############################################################################
+#                            OUTPUT PLUGINS                                   #
+###############################################################################
+
+
+# Configuration for sending metrics to InfluxDB
+[[outputs.influxdb]]
+  ## The full HTTP or UDP URL for your InfluxDB instance.
+
+urls = [&quot;http://172.20.0.4:8086&quot;]
+
+  ## The target database for metrics; will be created as needed.
+  ## For UDP url endpoint database needs to be configured on server side.
+  # database = &quot;telegraf&quot;
+database = &quot;telegraf&quot;
+
+
+  ## If true, no CREATE DATABASE queries will be sent.  Set to true when using
+  ## Telegraf with a user without permissions to create databases or when the
+  ## database already exists.
+  # skip_database_creation = false
+skip_database_creation = false
+
+  ## Name of existing retention policy to write to.  Empty string writes to
+  ## the default retention policy.  Only takes effect when using HTTP.
+  # retention_policy = &quot;&quot;
+retention_policy = &quot;&quot;
+
+  ## The value of this tag will be used to determine the retention policy.  If this
+  ## tag is not set the 'retention_policy' option is used as the default.
+  # retention_policy_tag = &quot;&quot;
+retention_policy_tag = &quot;&quot;
+
+  ## Timeout for HTTP messages.
+  # timeout = &quot;5s&quot;
+timeout = &quot;5s&quot;
+
+  ## HTTP Basic Auth
+  # username = &quot;telegraf&quot;
+  # password = &quot;metricsmetricsmetricsmetrics&quot;
+username = &quot;admin&quot;
+password = &quot;admin&quot;
+
+###############################################################################
+#                            INPUT PLUGINS                                    #
+###############################################################################
+# Read metrics about cpu usage
+[[inputs.cpu]]
+  ## Whether to report per-cpu stats or not
+  percpu = true
+  ## Whether to report total system cpu stats or not
+  totalcpu = true
+  ## If true, collect raw CPU time metrics.
+  collect_cpu_time = false
+  ## If true, compute and report the sum of all non-idle CPU states.
+  report_active = false
+
+
+# Read metrics about disk usage by mount point
+[[inputs.disk]]
+  ## By default stats will be gathered for all mount points.
+  ## Set mount_points will restrict the stats to only the specified mount points.
+  # mount_points = [&quot;/&quot;]
+
+  ## Ignore mount points by filesystem type.
+  ignore_fs = [&quot;tmpfs&quot;, &quot;devtmpfs&quot;, &quot;devfs&quot;, &quot;iso9660&quot;, &quot;overlay&quot;, &quot;aufs&quot;, &quot;squashfs&quot;]
+
+
+# Read metrics about disk IO by device
+[[inputs.diskio]]
+  ## By default, telegraf will gather stats for all devices including
+  ## disk partitions.
+  ## Setting devices will restrict the stats to the specified devices.
+  # devices = [&quot;sda&quot;, &quot;sdb&quot;, &quot;vd*&quot;]
+  ## Uncomment the following line if you need disk serial numbers.
+  # skip_serial_number = false
+  #
+  ## On systems which support it, device metadata can be added in the form of
+  ## tags.
+  ## Currently only Linux is supported via udev properties. You can view
+  ## available properties for a device by running:
+  ## 'udevadm info -q property -n /dev/sda'
+  ## Note: Most, but not all, udev properties can be accessed this way. Properties
+  ## that are currently inaccessible include DEVTYPE, DEVNAME, and DEVPATH.
+  # device_tags = [&quot;ID_FS_TYPE&quot;, &quot;ID_FS_USAGE&quot;]
+  #
+  ## Using the same metadata source as device_tags, you can also customize the
+  ## name of the device via templates.
+  ## The 'name_templates' parameter is a list of templates to try and apply to
+  ## the device. The template may contain variables in the form of '$PROPERTY' or
+  ## '${PROPERTY}'. The first template which does not contain any variables not
+  ## present for the device is used as the device name tag.
+  ## The typical use case is for LVM volumes, to get the VG/LV name instead of
+  ## the near-meaningless DM-0 name.
+  # name_templates = [&quot;$ID_FS_LABEL&quot;,&quot;$DM_VG_NAME/$DM_LV_NAME&quot;]
+
+
+# Get kernel statistics from /proc/stat
+[[inputs.kernel]]
+  # no configuration
+
+
+# Read metrics about memory usage
+[[inputs.mem]]
+  # no configuration
+
+
+# Get the number of processes and group them by status
+[[inputs.processes]]
+  # no configuration
+
+
+# Read metrics about swap memory usage
+[[inputs.swap]]
+  # no configuration
+
+
+# Read metrics about system load &amp; uptime
+[[inputs.system]]
+  ## Uncomment to remove deprecated metrics.
+  # fielddrop = [&quot;uptime_format&quot;]
+
+###############################################################################
+#                            SERVICE INPUT PLUGINS                            #
+###############################################################################
+
+  # # Read metrics from one or many postgresql servers
+ [[inputs.postgresql]]
+
+address= &quot;host=172.20.0.8 user=postgres password=postgres dbname=postgres&quot;
+
+</code></pre>
+<div style="text-align:justify">Para entender las configuraciones es necesario  tomar el archivo Telegraf base y analizar cada comentario y variable dentro de las pequeñas secciones separadas por <em>[[(plugin particular)]]</em>. Es destacable el orden que tiene el archivo y la forma en la cual esta documentado, ya que resulta bastante sencillo adaptar cada plugin a las necesidades particulares y arquitectura de red presente. El primer paso consisten en modificar la seccion <strong>[agents]</strong>,ya que sin importan el plugin de entrada o de salida que se utilice, el agente telegraf se basara en dichas configuraciones. Luego dependiendo el tipo de servicio que se desee monitorear se configuran los <strong>INPUT PLUGINS</strong> y <strong>SERVICE INPUT PLUGINS</strong>. Para finalmente, configurar algunos parametros asociados a la base de datos a la cual se conectara telegraf para guardar las metricas adquiridas. Estas configuraciones estan en <strong>OUTPUT PLUGINS</strong> </div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../generacionDeTrafico/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Generación de tráfico
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../visualizacionDeMetricas/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Visualización de métricas
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.fd16492e.min.js"></script>
+      <script src="../assets/javascripts/bundle.7836ba4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
