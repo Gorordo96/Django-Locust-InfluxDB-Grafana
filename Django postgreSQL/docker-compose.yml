@@ -1,0 +1,141 @@
+version: '3.2'
+
+services:
+
+ web:
+  build: appTrafico
+  command: python manage.py runserver 172.20.0.2:8010
+  volumes:
+   - ./appTrafico:/TraficoGyL
+  ports:
+   - "8010:8010"
+  depends_on:
+   - db
+  networks:
+   red_servicios:
+    ipv4_address: 172.20.0.2
+  container_name: Django
+
+ db:
+  image: postgres:13.0
+  environment:
+   - POSTGRES_DB=postgres
+   - POSTGRES_USER=postgres
+   - POSTGRES_PASSWORD=postgres
+  volumes:
+   - postgres_data:/var/lib/postgresql/data
+   - ./postgres/postgresql.conf:/etc/postgresql/postgresql.conf
+  command: postgres -c config_file=/etc/postgresql/postgresql.conf
+  networks:
+   red_servicios:
+    ipv4_address: 172.20.0.8
+  container_name: Postgres
+
+ locust:
+  build: ScriptLocust
+  command: -f /mnt/locust/Test_locust_regUser_08-11-2020.py
+  volumes:
+   - ./ScriptLocust:/mnt/locust
+  ports:
+   - "8089:8089"
+  links:
+   - web:web
+  networks:
+   red_servicios:
+    ipv4_address: 172.20.0.3
+  container_name: Locust
+
+ influxdb:
+  build: influxdb
+  env_file: configuration.env
+  ports:
+   - '8086:8086'
+  volumes:
+   - influxdb_data:/var/lib/influxdb
+  networks:
+   red_servicios:
+    ipv4_address: 172.20.0.4
+  container_name: Influxdb
+
+
+ chronograf:
+  image: chronograf:1.5
+  volumes:
+   - chronograf_data:/var/lib/chronograf
+  ports:
+   - '8087:8888'
+  networks:
+   red_servicios:
+    ipv4_address: 172.20.0.5
+  container_name: Chronograf
+
+ telegraf:
+  image: telegraf:1.16
+  volumes:
+   - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+   - /var/run/docker.sock:/var/run/docker.sock
+  links:
+   - influxdb
+  networks:
+   red_servicios:
+    ipv4_address: 172.20.0.9
+  container_name: Telegraf  
+  
+
+ grafana:
+  build: grafana
+  env_file: configuration.env
+  links:
+   - influxdb
+  ports:
+   - '3000:3000'
+  volumes:
+   - grafana_data:/var/lib/grafana
+   - ./grafana/dashboard:/var/lib/grafana/dashboards
+  networks:
+   red_servicios:
+    ipv4_address: 172.20.0.6
+  container_name: Grafana
+
+ reporter:
+  image: izakmarais/grafana-reporter:${gr_version:-latest}
+  command: "-ip 172.20.0.6:3000"
+  ports:
+    - "8686:8686"
+  networks:
+   red_servicios:
+    ipv4_address: 172.20.0.10
+  container_name: Reporter_Grafana   
+
+
+ cadvisor:
+  image: google/cadvisor
+  command: -storage_driver=influxdb -storage_driver_db=influx -storage_driver_host=172.20.0.4:8086
+  ports:
+   - "8080:8080"
+  volumes:
+   - /:/rootfs:ro
+   - /var/run:/var/run:rw
+   - /sys:/sys:ro
+   - /var/lib/docker/:/var/lib/docker:ro
+  links:
+   - influxdb:influxdb 
+  privileged: true
+   
+  networks:
+   red_servicios:
+    ipv4_address: 172.20.0.7
+  container_name: cAdvisor
+
+networks:
+ red_servicios:
+  driver: bridge
+  ipam:
+   config:
+    - subnet: 172.20.0.0/16
+
+volumes:
+  grafana_data: {}
+  influxdb_data: {}
+  chronograf_data: {}
+  postgres_data: {}

@@ -1,0 +1,10 @@
+{
+  "name": "InfluxDB",
+  "type": "influxdb",
+  "url": "http://172.20.0.4:8086",
+  "access": "proxy",
+  "user": "$INFLUX_USER",
+  "password": "$INFLUX_PASSWORD",
+  "database": "$INFLUX_DB",
+  "basicAuth": false
+}

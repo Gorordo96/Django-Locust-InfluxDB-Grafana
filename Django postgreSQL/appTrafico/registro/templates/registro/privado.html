@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Bienvenido
+{% endblock %}
+
+{% block content %}
+
+		<p>Bienvenido {{usuario.username|upper}}, la ultima vez {{usuario.last_login}}</p>
+		<p>eres miembro {{usuario.date_joined}}</p>
+	<h2>Posteo de datos</h2>
+	<form method="POST" class="post-form"> {% csrf_token %}
+	{{ formulario.as_p}}
+	<button type="submit" class="btn btn-outline-secondary">Guardar</button>
+ </form>
+
+{% endblock %}

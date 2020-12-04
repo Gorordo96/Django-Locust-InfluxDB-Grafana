@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Datos Subidos
+{% endblock %}
+
+{% load tz %}
+
+{% block content %}
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<h2>Los ultimos datos son:</h2>
+<div class="container">
+<table class="egt">
+
+{% for indice in Lista %}
+	<tr>
+		{% localtime on %}
+
+    <td>{{indice.fecha}} </td> 
+
+		{% endlocaltime %}
+
+		{% localtime off %}
+
+    <td>{{indice.ubicacion}}</td>
+
+    <td>{{indice.temperatura}}</td>
+
+    <td>{{indice.presion}}</td>
+
+    <td>{{indice.humedad}}</td>
+
+		{% endlocaltime %}
+
+  </tr>
+{% endfor %}
+</table>
+</div>
+{{ etiquetas.0|safe }}
+{{ etiquetas.1|safe }}
+{{ etiquetas.2|safe }}
+
+{{ etiquetas.3|safe }}
+{{ etiquetas.4|safe }}
+{{ etiquetas.5|safe }}
+
+{{ etiquetas.6|safe }}
+{{ etiquetas.7|safe }}
+{{ etiquetas.8|safe }}
+
+{% endblock %}

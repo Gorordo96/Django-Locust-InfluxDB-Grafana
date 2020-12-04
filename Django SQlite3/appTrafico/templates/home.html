@@ -1,0 +1,106 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+ <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link rel="icon" type="image/x-icon" href="static/favicon.ico" />
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+            <!-- Masthead-->
+        <header class="masthead bg-info text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <img class="masthead-avatar mb-5" src="static/internet-de-las-cosas.svg" alt="" width="300" height="350" />
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0">Internet of Things</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">Temperatura - Presion - Humedad</p>
+            </div>
+            <div class="col-xs-12" style="height:15px;"></div>
+        </header>
+    
+    
+    
+    
+        <div class=" bg-white align-items-center flex-column">
+        <div class="text-center">
+            <div class="col-xs-12" style="height:15px;"></div>
+{% if user.is_authenticated %}
+            <h5 class="section-heading">Buenas {{ user.username }}! </h5>
+ <form action="{% url 'logout' %}">
+            <input type= "submit" class = "btn btn-outline-danger" value="Cerrar sesion">
+            </form>
+{% else %}
+  <h5 class="section-heading">No estas Logueado en la pagina, Ingresa:</h5>
+ <form action="{% url 'login' %}">
+            <input type= "submit" class = "btn btn-outline-info" value="Iniciar sesion">
+            </form>
+{% endif %}
+            <div class="col-xs-12" style="height:5px;"></div>
+            <h5 class="section-heading">Si sos usuario:</h5>
+            
+<form action="/registro/procUser">
+            <input type= "submit" class = "btn btn-outline-secondary" value="Ver datos de sensores">
+            </form>
+    </div>
+                <div class="col-xs-12" style="height:25px;"></div>
+</div>    
+    
+    
+            <!-- Team-->
+
+        <section class="page-section bg-light" id="team">
+            <div class="col-xs-12" style="height:15px;"></div>
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading">Desarrolladores</h2>
+                    <h4 class="section-subheading text-muted">Trabajo final Trafico: Dockerizacion de servicios para testing</h4>
+                </div>
+                <div class="col-xs-12" style="height:5px;"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="team-member">
+                            <img class="mx-auto d-block rounded-circle" src="static/1.jpg" alt="" />
+                            <h4 class="text-center">Lucas Gorordo</h4>
+                            <p class="text-center text-muted">Estudiante Ing. Telecomunicaciones</p>
+                            <div class= "text-center">
+                                <a class=" btn btn-secondary btn-social rounded-circle" href="https://www.linkedin.com/in/lucas-gorordo-407323168/"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="team-member">
+                            <img class="mx-auto d-block rounded-circle" src="static/2.png" alt="" />
+                            <h4 class="text-center">Geronimo Passini</h4>
+                            <p class="text-center text-muted">Estudiante Ing. Telecomunicaciones</p>
+                            <div class= "text-center">
+                                <a class=" btn btn-secondary btn-social rounded-circle" href="https://www.linkedin.com/in/geronimopassini/"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    <div class="col-xs-12" style="height:10px;"></div>                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Todo el contenido de esta pagina se encuentra disponible en el repositorio:</p>
+                    <a class=" btn btn-warning btn-social rounded-circle" href="https://gitlab.com/unrc/trafico/tabajos-finales/lucas_gorordo-ger-nimo_passini-2020/desarrollo"><i class="fab fa-gitlab"></i></a></div>
+
+                </div>
+                
+            </div>
+        </section>
+<div class="col-xs-12 bg-light" style="height:30px;"></div>                
+</body>
+{% endblock %}

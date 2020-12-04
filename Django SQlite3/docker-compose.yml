@@ -1,0 +1,108 @@
+version: '3.2'
+
+services:
+ web:
+  build: appTrafico
+  command: python manage.py runserver 172.21.0.2:8010
+  volumes:
+   - ./appTrafico:/TraficoGyL
+  ports:
+   - "8010:8010"
+  networks:
+   red_servicios:
+    ipv4_address: 172.21.0.2
+  container_name: Django_SQlite
+
+ locust:
+  build: ScriptLocust
+  command: -f /mnt/locust/Test_locust_regUser_08-11-2020.py
+  volumes:
+   - ./ScriptLocust:/mnt/locust
+  ports:
+   - "8089:8089"
+  links:
+   - web:web
+  networks:
+   red_servicios:
+    ipv4_address: 172.21.0.3
+  container_name: Locust_SQlite
+
+ influxdb:
+  build: influxdb
+  env_file: configuration.env
+  ports:
+   - '8086:8086'
+  volumes:
+   - influxdb_data:/var/lib/influxdb
+  networks:
+   red_servicios:
+    ipv4_address: 172.21.0.4
+  container_name: Influxdb_SQlite
+
+
+ chronograf:
+  image: chronograf:1.5
+  volumes:
+   - chronograf_data:/var/lib/chronograf
+  ports:
+   - '8087:8888'
+  networks:
+   red_servicios:
+    ipv4_address: 172.21.0.5
+  container_name: Chronograf_SQlite
+
+ grafana:
+  build: grafana
+  env_file: configuration.env
+  links:
+   - influxdb
+  ports:
+   - '3000:3000'
+  volumes:
+   - grafana_data:/var/lib/grafana
+   - ./grafana/dashboard:/var/lib/grafana/dashboards
+  networks:
+   red_servicios:
+    ipv4_address: 172.21.0.6
+  container_name: Grafana_SQlite
+
+ reporter:
+  image: izakmarais/grafana-reporter:${gr_version:-latest}
+  command: "-ip 172.21.0.6:3000"
+  ports:
+    - "8686:8686"
+  networks:
+   red_servicios:
+    ipv4_address: 172.21.0.10
+  container_name: Reporter_Grafana_SQlite     
+
+ cadvisor:
+  image: google/cadvisor
+  command: -storage_driver=influxdb -storage_driver_db=influx -storage_driver_host=172.21.0.4:8086
+  ports:
+   - "8080:8080"
+  volumes:
+   - /:/rootfs:ro
+   - /var/run:/var/run:rw
+   - /sys:/sys:ro
+   - /var/lib/docker/:/var/lib/docker:ro
+  links:
+   - influxdb:influxdb 
+  privileged: true
+   
+  networks:
+   red_servicios:
+    ipv4_address: 172.21.0.7
+  container_name: cAdvisor_SQlite
+
+networks:
+ red_servicios:
+  driver: bridge
+  ipam:
+   config:
+    - subnet: 172.21.0.0/16
+
+volumes:
+  grafana_data: {}
+  influxdb_data: {}
+  chronograf_data: {}

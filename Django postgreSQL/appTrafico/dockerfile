@@ -1,0 +1,15 @@
+FROM python:3.7.9-buster
+
+ENV PYTHONUNBUFFERED 1                      
+
+RUN mkdir /TraficoGyL
+
+WORKDIR /TraficoGyL
+
+COPY requerimientos.txt /TraficoGyL
+
+RUN apt-get update
+     
+RUN pip3 install -r requerimientos.txt          
+
+COPY . /TraficoGyL

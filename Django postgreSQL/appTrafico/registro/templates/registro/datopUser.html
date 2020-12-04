@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Datos Consultados
+{% endblock %}
+
+{% load tz %}
+
+{% block content %}
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+{% for ubicaciondato in ubicacion %}
+
+{% if ubicaciondato == 'RC' %}
+
+<H1> {{ rango_temp.0|localtime }} - {{ rango_temp.1|localtime }} </H1>
+
+{% for datodato in dato %}
+
+{% if datodato == 'TEMP' %}
+{{ etiquetas.0|safe }}
+{% endif %}
+
+{% if datodato == 'PRE' %}
+{{ etiquetas.3|safe }}
+{% endif %}
+
+{% if datodato == 'HUM' %}
+{{ etiquetas.6|safe }}
+{% endif %}
+
+{% endfor %}
+
+{% endif %}
+
+{% if ubicaciondato == 'SAM' %}
+
+<H1> {{ rango_temp.2|localtime }} - {{ rango_temp.3|localtime }} </H1>
+
+{% for datodato in dato %}
+
+{% if datodato == 'TEMP' %}
+{{ etiquetas.1|safe }}
+{% endif %}
+
+{% if datodato == 'PRE' %}
+{{ etiquetas.4|safe }}
+{% endif %}
+
+{% if datodato == 'HUM' %}
+{{ etiquetas.7|safe }}
+{% endif %}
+
+{% endfor %}
+
+{% endif %}
+
+{% if ubicaciondato == 'GD' %}
+
+<H1> {{ rango_temp.4|localtime }} - {{ rango_temp.5|localtime }} </H1>
+
+{% for datodato in dato %}
+
+{% if datodato == 'TEMP' %}
+{{ etiquetas.2|safe }}
+{% endif %}
+
+{% if datodato == 'PRE' %}
+{{ etiquetas.5|safe }}
+{% endif %}
+
+{% if datodato == 'HUM' %}
+{{ etiquetas.8|safe }}
+{% endif %}
+
+{% endfor %}
+
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}
