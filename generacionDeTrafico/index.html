@@ -537,7 +537,7 @@ Por último, para poder correr este script y mediante un terminal ubicado en la 
 <div style="text-align:justify">Los datos de los sensores no cambiaran significativamente durante intervalos regulares de tiempo inferiores a 15 minutos, por lo tanto no tiene sentido plantear un escenario donde la carga sea inferior a dicho valor. Ademas, esta periodicidad temporal implicaria la utilizacion de la frecuencia mas alta de carga de datos dentro de un rango temporal de 1 hora, por lo que resultaria una prueba critica para el servidor.</div>
 <div style="text-align:justify">En cuanto al comportamiento de los consumidores, se plantea que cada uno de ellos consulta los datos administrados en el sitio web y previamente cargados por los sensores en las bases de datos, en intervalos regulares de tiempo comprendidos entre 2 a 3 minutos, siempre con un valor aleatorio de consulta a consulta.</div>
 
-<p><img alt="diagrama_Locust" src="https://github.com/Gorordo96/Django-Locust-InfluxDB-Grafana/blob/gh-pages/Img/Estructura_Locust.png" /></p>
+<p><img alt="diagrama_Locust" src="https://raw.githubusercontent.com/Gorordo96/Django-Locust-InfluxDB-Grafana/gh-pages/Img/Estructura_Locust.png" /></p>
 <p>Al analizar el script encontramos en las primeras lineas la funcion obt_cred: </p>
 <pre><code>def obt_cred(nombre_archivo,cant_user):
     print(&quot;*************************************************&quot;)

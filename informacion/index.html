@@ -382,12 +382,12 @@ Este simple comando llevara a cabo una serie de instrucciones predefinidas que l
 <li><strong>Telegraf</strong> (opcional) en la siguiente ubicacion: <em>172.20.0.9</em></li>
 <li><strong>Reporter</strong> en la siguiente ubicacion: <em>172.2x.0.10:8686</em></li>
 </ul>
-<p><img alt="DockerFile" src="https://github.com/Gorordo96/Django-Locust-InfluxDB-Grafana/blob/gh-pages/Img/Estructura_docker.png" /></p>
+<p><img alt="DockerFile" src="https://raw.githubusercontent.com/Gorordo96/Django-Locust-InfluxDB-Grafana/gh-pages/Img/Estructura_docker.png" /></p>
 <div style="text-align:justify">
 Como puede observarse, todos los contenedores pertenecen a la misma red interna "172.2x.0.0/16" (en donde la 'x' sera 0 si se usa PostgreSQL o 1 si se usa Sqlite3)  y son capaces de comunicarse bajo  cualquier arquitectura de red sobre la cual se levante. Con respecto al ultimo servicio, "Reporter", tiene unicamente la tarea de importar las metricas de Grafana a PDF.
 Para comprender mas en detalle como es que interactuan entre si los distintos servicios se debe de observar la siguiente figura:</div>
 
-<p><img alt="Conexion_de_Servicios" src="https://github.com/Gorordo96/Django-Locust-InfluxDB-Grafana/blob/gh-pages/Img/Diagrama_Servicios_SQlite.jpg" /></p>
+<p><img alt="Conexion_de_Servicios" src="https://raw.githubusercontent.com/Gorordo96/Django-Locust-InfluxDB-Grafana/gh-pages/Img/Diagrama_Servicios_SQlite.jpg" /></p>
 <div style="text-align:justify">Esta portabilidad de la estructura entera es gracias a los beneficios que aporta Docker Compose a la tecnologia Docker, ya que Docker Compose es una herramienta que permite simplificar el uso de Docker. A partir de archivos YAML es mas sencillo crear contendores, conectarlos, habilitar puertos, volumenes, etc.
 Con Compose se puede crear diferentes contenedores y al mismo tiempo, en cada contenedor, diferentes servicios, unirlos a un volúmen común, iniciarlos y apagarlos, etc. Es un componente fundamental para poder construir aplicaciones y microservicios.
 En vez de utilizar Docker via una serie inmemorizable de comandos bash y scripts, Docker Compose  permite mediante archivos YAML, poder instruir al Docker Engine a realizar tareas, preprogramadas. Y esta es la clave, la facilidad para dar una serie de instrucciones, y luego repetirlas en diferentes ambientes.
@@ -512,7 +512,7 @@ volumes:
 <p>2- <strong>"services:"</strong> es la segunda linea dentro del archivo y es tan importante como la primera. Especifica los servicios que estaran presentes en cada contenedor. Como se puede observar en la porcion de codigo expuesta anteriormente, ellos se denominan como: web,locust,influxdb,grafana,etc.
  Cada uno de ellos, tiene configurado varios parametros. Entre ellos se encuentran:</p>
 <p>2.1- <strong>build</strong>:  especifica la ubicación de nuestro Dockerfile. Un Dockerfile es un archivo de texto plano que contiene una serie de instrucciones necesarias para crear una imagen que, posteriormente, se convertirá en una sola aplicación utilizada para un determinado propósito.
- <img alt="DockerFile" src="https://github.com/Gorordo96/Django-Locust-InfluxDB-Grafana/blob/gh-pages/Img/imagen.png" /></p>
+ <img alt="DockerFile" src="https://raw.githubusercontent.com/Gorordo96/Django-Locust-InfluxDB-Grafana/gh-pages/Img/imagen.png" /></p>
 <p>Teniendo presente que en el trabajo se estan realizando pruebas con 2 bases datos diferentes, en el segundo caso se implementa PostgreSQL, en donde se configuran 2 servicios adicionales que corresponden a la propia base de datos y a Telegraf. Siendo su docker compose correspondiente, el siguiente:</p>
 <pre><code>
 version: '3.2'

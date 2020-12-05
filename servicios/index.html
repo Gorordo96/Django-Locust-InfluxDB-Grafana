@@ -600,7 +600,7 @@ Una respuesta sencilla sería sí, ya que este nos ahorra muchísimo trabajo y n
 Django está centrado en el desarrollo rápido de aplicaciones web y sobre todo usando el principio de la programación DRY (No te repitas) y es algo importante en el core de este framework.
 </div>
 
-<p><img alt="Logo_Django" src="https://github.com/Gorordo96/Django-Locust-InfluxDB-Grafana/blob/gh-pages/Img/dijango-logo.png" /></p>
+<p><img alt="Logo_Django" src="https://raw.githubusercontent.com/Gorordo96/Django-Locust-InfluxDB-Grafana/gh-pages/Img/dijango-logo.png" /></p>
 <div style="text-align:justify">
 Django se puede ejecutar en cualquier sistema operativo. Sólo es necesario instalar Python (Mac y Linux tienen python por defecto) y gracias al gestor de paquetes de python (PIP) instalarlo es tan sencillo como ejecutar este comando
 </div>
@@ -664,7 +664,7 @@ Debido a que la "C" es manejada por el mismo framework y la parte más important
 <li>Si lo necesita también utiliza la definición de los formularios.</li>
 <li>Para después responder a la petición mostrando la página que contiene esa URL.</li>
 </ol>
-<p><img alt="Funcionamiento_de_Django" src="https://github.com/Gorordo96/Django-Locust-InfluxDB-Grafana/blob/gh-pages/Img/funcionamiento-de-django.png" /></p>
+<p><img alt="Funcionamiento_de_Django" src="https://raw.githubusercontent.com/Gorordo96/Django-Locust-InfluxDB-Grafana/gh-pages/Img/funcionamiento-de-django.png" /></p>
 <h2 id="que-es-un-cms">¿Qué es un CMS?</h2>
 <div style="text-align:justify">
 Un CMS o Sistema de Gestión de Contenidos es un programa que le permite al usuario un fácil manejo de información para su página de Internet.
@@ -706,24 +706,24 @@ En primer lugar, son dos cosas distintas. Básicamente, WordPress es el tablero 
 <h2 id="servicio-a-implementar">Servicio a implementar</h2>
 <div style="text-align:justify">Teniendo presentes la finalidad del trabajo y ya justificada la elección por Django, es que se plantea el siguiente proyecto compuesto por 3 etapas, tal como se ve a continuación:</div>
 
-<p><img alt="Esquema_general_del_servicio" src="https://github.com/Gorordo96/Django-Locust-InfluxDB-Grafana/blob/gh-pages/Img/Servicios_Esquema_general_proyecto.jpg" /></p>
+<p><img alt="Esquema_general_del_servicio" src="https://raw.githubusercontent.com/Gorordo96/Django-Locust-InfluxDB-Grafana/gh-pages/Img/Servicios_Esquema_general_proyecto.jpg" /></p>
 <div style="text-align:justify">Esta aplicación, como se observa en la imagen tiene la finalidad de permitir a cualquier usuario que visite la página web y mediante una consulta poder visualizar información de datos meteorológicos que se encuentran disponibles en las bases de datos y que al mismo tiempo han sido cargados por los diversos sensores con que cuenta la red simulada. Con respecto al acceso a carga de datos al sistema, como se observa a la izquierda, cada uno de los sensores debe de pasar en primera instancia una etapa de registro y/o login para poder alojar su información en la base de datos.</div>
 
 <h2 id="composicion-del-servicio-django">Composición del Servicio Django</h2>
 <div style="text-align:justify">Para comprender como es que funciona el servicio encargado de generar la página web, se debe analizar cómo se encuentra la carpeta asociada al servicio y que lleva el nombre de “appTrafico”, esta carpeta se puede encontrar dentro del repositorio en la dirección “/Versiones Finales/Proyecto_con_SQlite3/appTrafico” o también dentro de “/Versiones Finales/Proyecto_con_PostgreSQL/appTrafico”, su composición es:</div>
 
-<p><img alt="Composicion_directorio_appTrafico" src="https://github.com/Gorordo96/Django-Locust-InfluxDB-Grafana/blob/gh-pages/Img/Contenido_servicio.png" /></p>
+<p><img alt="Composicion_directorio_appTrafico" src="https://raw.githubusercontent.com/Gorordo96/Django-Locust-InfluxDB-Grafana/gh-pages/Img/Contenido_servicio.png" /></p>
 <div style="text-align:justify">Para realizar una descripción de la composición de los componentes fundamentales del directorio, primero se debe de observar que al estar trabajando con un esquema dockerizado, se cuenta con un archivo “dockerfile”, este archivo además de contar con los distintos comandos para poner en funcionamiento Django, necesita de un documento el cual le indica los distintos programas que se necesitan instalar para el total funcionamiento de la aplicación, en este caso el archivo en cuestión es “requerimientos.txt”. Situado arriba de este archivo, se encuentra “manage.py”, este script sirve para ejecutar y administrar las herramientas de Django necesarias para este proyecto.
 Después se cuenta con 4 carpetas, estas son:  ”templates” ,”static”, “registro” y  “config”.</div>
 <ul>
 <li><strong>Templates:</strong> <div style="text-align:justify">Es la carpeta que contiene los html básicos para la aplicación, en donde uno de sus archivos fundamentales, es “base.html”, este contiene gran mayoría de las etiquetas html y que serán heredadas por los distintos html que utilicemos para las ventanas de la página web. Se podría interpretar que es el encargado de dar el esqueleto, donde luego cada pestaña sobre esta configuración básica, agregara el aspecto que sea requerido.</div></li>
 </ul>
-<p><img alt="Composicion_directorio_appTrafico/templates" src="https://github.com/Gorordo96/Django-Locust-InfluxDB-Grafana/blob/gh-pages/Img/Contenido_servicio_templates.png" /></p>
+<p><img alt="Composicion_directorio_appTrafico/templates" src="https://raw.githubusercontent.com/Gorordo96/Django-Locust-InfluxDB-Grafana/gh-pages/Img/Contenido_servicio_templates.png" /></p>
 <ul>
 <li><strong>Static:</strong> <div style="text-align:justify">Es el directorio encargado de contener los archivos estáticos, como son por ejemplo las imágenes o iconos que se utilizan en la página web o graficas que son generadas por el servicio y es el directorio de almacenamiento para este contenido</div></li>
 <li><strong>Registro:</strong> <div style="text-align:justify">Es el nombre que se le designo a la aplicación de Django. Que dentro contiene todos los archivos “.py” y “.html” asociados al comportamiento y para la visualización de la aplicación. Su contenido es el siguiente:</div></li>
 </ul>
-<p><img alt="Composicion_directorio_appTrafico/registro" src="https://github.com/Gorordo96/Django-Locust-InfluxDB-Grafana/blob/gh-pages/Img/Contenido_servicio_registro.png" /></p>
+<p><img alt="Composicion_directorio_appTrafico/registro" src="https://raw.githubusercontent.com/Gorordo96/Django-Locust-InfluxDB-Grafana/gh-pages/Img/Contenido_servicio_registro.png" /></p>
 <div style="text-align:justify">Dentro de la carpeta “templates” es que se encuentran todos los archivos “.html”, luego están todos los scripts necesarios para el funcionamiento de la api. 
 “admin.py” contiene los modelos que se definirán en el proyecto, para este caso se han definido dos, los cuales son “sensor” y “sensor_dato”. El primero contiene los datos del sensor registrado y “sensor_dato” tiene los datos, asociados al clima y ubicación, que han cargado cada uno de los sensores y que serán los datos que se entregarán ante las distintas consultas de los usuarios que accedan a la aplicación. Estos modelos se encuentran descriptos en “models.py” en donde se define los campos que solicita cada uno de ellos para realizar un correcto registro del modelo.
 “views.py” contiene la lógica de la navegación por la aplicación, asociada a las url en “urls.py” definidas. Para esta implementación se han definido 4 urls, los cuales tienen asociados distintos formularios, según los requerimientos y definidos en “forms.py”. Como así también se direccionará hacia los distintos “.html” ubicados en “/templates” que tiene vinculada cada url. </div>
@@ -732,7 +732,7 @@ Después se cuenta con 4 carpetas, estas son:  ”templates” ,”static”, �
 <li><strong>Config:</strong> <div style="text-align:justify">Es la última carpeta y contiene todas las configuraciones asociadas al sitio web. Su composición es:
 </div></li>
 </ul>
-<p><img alt="Composicion_directorio_appTrafico/Config" src="https://github.com/Gorordo96/Django-Locust-InfluxDB-Grafana/blob/gh-pages/Img/Contenido_servicio_config.png" /></p>
+<p><img alt="Composicion_directorio_appTrafico/Config" src="https://raw.githubusercontent.com/Gorordo96/Django-Locust-InfluxDB-Grafana/gh-pages/Img/Contenido_servicio_config.png" /></p>
 <div style="text-align:justify">El script “settings.py” tiene todas las configuraciones necesarias del sitio, por lo que es donde se registra todas las aplicaciones que se crean, la localización de los ficheros estáticos, los detalles de configuración de la base de datos, etc.
 “urls.py” define los mapeos url-vistas. A pesar de que éste podría contener todo el código del mapeo url, es más común repartir parte del mapeo a las propias aplicaciones, como sucedió en “/registro”.
 “wsgi.py” y “asgi.py” se utilizan para ayudar a la aplicación Django a comunicarse con el servidor web.
@@ -753,7 +753,7 @@ De todos estos scripts, el más importante a describir es “settings.py”, en 
 <h2 id="navegacion-por-el-servicio-django">Navegación por el servicio Django</h2>
 <div style="text-align:justify">Para poder entender la navegación dentro de la aplicación, es que se presenta un diagrama de flujo el cual contiene todas las pestanas asociadas a la página web y que dan sentido a la implementación de todas las configuraciones antes mencionadas. Para comprender el funcionamiento de la navegación es que se debe tener presente que la aplicación podrá ser consultada por 2 grupos diferenciados, siendo estos Sensores y Usuarios, los cuales experimentaran una navegación diferente. Una vez mencionado este detalle, el diagrama de flujo es:</div>
 
-<p><img alt="Diagrama_de_flujo_servicio_Django" src="https://github.com/Gorordo96/Django-Locust-InfluxDB-Grafana/blob/gh-pages/Img/DiagramadeFlujo_pagina.png" /></p>
+<p><img alt="Diagrama_de_flujo_servicio_Django" src="https://raw.githubusercontent.com/Gorordo96/Django-Locust-InfluxDB-Grafana/gh-pages/Img/DiagramadeFlujo_pagina.png" /></p>
 <div style="text-align:justify">Para acceder a la pagina web se debe ingresar la dirección: http://127.0.0.1:8010 o http://172.2x.0.2:8010 en el caso de estar accediendo desde el mismo host, en caso de acceder de manera externa, se debe de acceder mediante el ip que tiene asignado el host que contiene el servicio y redireccionar hacia el puerto 8010, tal como se hizo en las dos direcciones anteriores. Una vez que se ha accedido a la página se podrá ver un panel superior desplegable, el cual nos puede llevar a el mismo home en el cual nos encontramos, a realizar un registro de un nuevo sensor o una carga de datos por parte de los sensores.</div>
 <div style="text-align:justify">En la parte central de la página están los botones asociados a “iniciar sesión” o “consultar datos” es en esta instancia que la navegación por la página web bifurca según sea el caso de un sensor que inicie sesión o un usuario que consulte datos climatológicos. Considerando el caso de este último, se lo llevará hacia una nueva url asociada a “/registro/procUser” en donde el usuario mediante el correcto llenado de un formulario que solicita la ubicación y características climatológicas, podrá visualizar los datos solicitados a la base de datos y, si así lo desea, realizar nuevas consultas mediante la variación en el formulario antes comentado.</div>
 <div style="text-align:justify">Con respecto a los sensores y en la otra rama de navegación, estos deberán iniciar sesión en donde serán llevados a “/accounts/login”, si se diera el caso de que el sensor no este registrado, debe de ingresar a “/registro/nuevo” para un posterior login. Una vez que el sensor ha iniciado sesión correctamente, es que podrá acceder a “/registro/privado” para poder cargar los datos asociados a su ubicación geográfica y los datos climatológicos obtenidos, estos datos serán cargados mediante un formulario, que en el caso de estar ingresados de manera correcta serán registrados en la base de datos. Luego el sensor podrá ver sus últimos registros cargados visualizándose mediante una tabla y distintas gráficas. 
